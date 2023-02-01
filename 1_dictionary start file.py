@@ -7,11 +7,7 @@ phonebook = {'Chris':'555−1111',
              'Joanne':'555−3333'}
 
 """
-mydictionary = dict(m = 8, n = 9)
 
-print(mydictionary)
-
-print(f"Number of key-value pairs: len(phonebook)")
 
 
 print()
@@ -19,7 +15,11 @@ print('*****  start section 1 - print dictionary ********')
 print()
 
 
+mydictionary = dict(m = 8, n = 9)
 
+print(mydictionary)
+
+print(f"Number of key-value pairs: len(phonebook)")
 
 
 print()
