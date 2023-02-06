@@ -44,3 +44,4 @@ dict={"name": "Plato", "country": "Ancient Greece", "born": -427, "teacher": "So
 
 dict["work"] = ["Apology", "Phaedo", "Republic", "Symposium"]
 
+print(dict)
