@@ -27,33 +27,20 @@ conference_schools = [372, 108, 107, 130]
 schools_women_grad_rate = []
 schools_off_campus = []
 
-#print(type(schools))
+print(type(schools))
 
 #How many schools are in this file?
-#print(len(schools))
+print(len(schools))
 
 
 for i in range(0, len(schools)):
     school_dict = schools[i]
 
-    #Determines if correct conference
     if school_dict["NCAA"]["NAIA conference number football (IC2020)"] in conference_schools:
-        #Determines if correct grad rate for women then appends to list
         if school_dict["Graduation rate  women (DRVGR2020)"] > 75:
             schools_women_grad_rate.append(school_dict["instnm"])
-
-        #Determines if total price is greater than 50,000
-        if type(school_dict["Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)"]) == int:
-            if school_dict["Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)"] > 50000:
-                schools_off_campus.append(school_dict["instnm"])
         
+        if school_dict["Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)"] > 50000:
+            schools_off_campus.append(school_dict["instnm"])
 
-print("Schools With Women Grad rate above 75% : ", "\n", "-" * 40, sep = "")
-for i in range(0, len(schools_women_grad_rate)):
-    print(schools_women_grad_rate[i])
-
-print("\nSchools with a total price for in-state students living off campus over $50,000 : ", "\n", "-" * 80, sep = "")
-for i in range(0, len(schools_off_campus)):
-    print(schools_off_campus[i])
-
-
+print("Schools With Women Grad rate above 75% : ")
