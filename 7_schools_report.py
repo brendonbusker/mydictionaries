@@ -56,4 +56,6 @@ print("\nSchools with a total price for in-state students living off campus over
 for i in range(0, len(schools_off_campus)):
     print(schools_off_campus[i])
 
+infile.close()
+
 
