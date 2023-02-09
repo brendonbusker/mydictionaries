@@ -45,36 +45,37 @@ def main():
    # Prints amt of equakes
    print("Total number of earthquakes:", len(equakes["features"]))
 
-   # New dictionaries
-   eq_dict = {"earthquakes": []}
+   # New dictionaries + counter
+   eq_dict = {}
    temp_dict = {}
+   j = 1
 
    # Loops thru earthquakes and filters them into new dictionary
    for i in range(0, len(equakes["features"])):
-      if equakes["features"][i]["properties"]["mag"] > 6:
-         
+      if equakes["features"][i]["properties"]["mag"] > 6:         
          temp_dict["location"] = equakes["features"][i]["properties"]["place"]
          temp_dict["magnitude"] = equakes["features"][i]["properties"]["mag"]
          temp_dict["longitude"] = equakes["features"][i]["geometry"]["coordinates"][0]
          temp_dict["latitude"] = equakes["features"][i]["geometry"]["coordinates"][1]
 
-         # Appends to new dictionary
-         eq_dict["earthquakes"].append(temp_dict)
+         eq_dict[f"earthquake #{j}"] = [temp_dict]
 
-         # Resets temp dict
          temp_dict = {}
-
+         j += 1
+   
    # Prints new dictionary
+   print()
    print(eq_dict, "\n")
-         
-   # Print out specific info
-   for i in range(0, len(eq_dict["earthquakes"])):
-      print("Location:", eq_dict["earthquakes"][i]["location"])
-      print("Magnitude:", eq_dict["earthquakes"][i]["magnitude"])
-      print("Longitude:", eq_dict["earthquakes"][i]["longitude"])
-      print("Latitude:", eq_dict["earthquakes"][i]["latitude"])
-
+   
+   # Print out specifc info
+   for k, v in eq_dict.items():
+      print("Location:", v[0]["location"])
+      print("Magnitude:", v[0]["magnitude"])
+      print("Longitude:", v[0]["longitude"])
+      print("Latitude:", v[0]["latitude"])
       print()
+
+
 
    infile.close()
 
